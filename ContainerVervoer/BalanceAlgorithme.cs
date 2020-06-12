@@ -58,10 +58,11 @@ namespace ContainerVervoer
         {
             //Select the first row
             Row FirstRow = ship.ReturnRow(0);
-            if (cvList.Count < FirstRow.Stacks.Count)
+            if (cvList.Count <= FirstRow.Stacks.Count)
             {
                 for (int i = 0; i < cvList.Count; i++)
                 {
+                    
                     FirstRow.AddContainerToStack(cvList[i], i);
                 }
             }
@@ -73,7 +74,7 @@ namespace ContainerVervoer
 
         public void PlaceCContainers()
         {
-            List<CooledContainer> SortedOnWeight = cList.OrderBy(c => c.weight).ToList();
+            List<CooledContainer> SortedOnWeight = cList.OrderBy(c => c.weight).Reverse().ToList();
 
             Row firstRow = ship.ReturnRow(0);
             foreach (var stack in firstRow.Stacks)
@@ -82,6 +83,10 @@ namespace ContainerVervoer
                 {
                     if (stack.CanAddContainer(c))
                     {
+                        if (c.placeLow == true)
+                        {
+                            stack.AddContainerToStackLow(c);
+                        }
                         stack.AddContainerToStack(c);
                     }
                 }

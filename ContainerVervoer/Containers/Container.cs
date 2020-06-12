@@ -7,14 +7,14 @@ namespace ContainerVervoer
    public abstract class Container
    {
        public int weight { get; set; }
-       private bool canHaveContainerOnTop;
-       private ContainerStack containerStack;
+       public bool canHaveContainerOnTop { get; set; }
+       public bool placeLow { get; set; }
 
        public Container() { }
 
-       public Container(int weight, bool _canHaveContainerOnTop)
+       public Container(int _weight, bool _canHaveContainerOnTop)
        {
-           weight = weight;
+           weight = _weight;
            canHaveContainerOnTop = _canHaveContainerOnTop;
        }
    }

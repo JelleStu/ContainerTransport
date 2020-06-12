@@ -18,7 +18,7 @@ namespace ContainerVervoer
             size = StacksAnmount;
             for (int i = 0; i < StacksAnmount; i++)
             {
-                var stack = new ContainerStack(row);
+                var stack = new ContainerStack(row, i);
                 Stacks.Add(stack);
             }
             
@@ -26,7 +26,7 @@ namespace ContainerVervoer
 
         public void AddContainerToStack(Container container, int _stack)
         {
-          var stack = Stacks.FirstOrDefault(s => s.x == _stack);
+          var stack = Stacks.FirstOrDefault(s => s.stackNumber == _stack);
           if (stack.CanAddContainer(container))
           {
               stack.AddContainerToStack(container);

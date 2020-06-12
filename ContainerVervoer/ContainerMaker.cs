@@ -6,7 +6,7 @@ namespace ContainerVervoer
 {
     public class ContainerMaker
     {
-        private int i = 0;
+        
         private BalanceAlgorithme balanceAlgorithm;
 
         public ContainerMaker(BalanceAlgorithme _balanceAlgorithm)
@@ -16,6 +16,7 @@ namespace ContainerVervoer
 
         public void CreateContainers<Container>(int quanity, Container _container)
         {
+            int i = 0;
             while (i < quanity)
             {
                 if (_container is CooledAndValuable)
