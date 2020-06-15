@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics.Contracts;
+using System.Linq;
 using System.Text;
 using System.Threading;
 
@@ -22,12 +23,27 @@ namespace ContainerVervoer
 
         public void AddContainerToStack(Container _container)
         {
-            containers.Add(_container);
+            if (containers.Count == 0)
+            {
+                containers.Add(_container);
+            }
+            else
+            {
+                int position = containers.Count - 1;
+                containers.Insert(position, _container);
+            }
             weight += _container.weight;
         }
+
         public void AddContainerToStackLow(Container _container)
         {
             containers.Insert(0, _container);
+            weight += _container.weight;
+        }
+        
+        public void AddContainerToStackHigh(Container _container)
+        {
+            containers.Add(_container);
             weight += _container.weight;
         }
 
@@ -46,25 +62,52 @@ namespace ContainerVervoer
                         return false;
                     }
                 case CooledContainer cc:
-                    foreach (var c in containers)
+                    weightOnNewContainer += containers.Sum(c => c.weight);
+                    if (weightOnNewContainer >= 120000) return false;
+                    if (getHeaviestContainer() > _container.weight || getHeaviestContainer() == 0)
                     {
-                        weightOnNewContainer = weightOnNewContainer + c.weight;
-                    }
-                    if (weightOnNewContainer < 120000)
-                    {
-                        if (getHeaviestContainer() > _container.weight || getHeaviestContainer() == 0)
-                        {
-                            _container.placeLow = true;
-                            return true;
-                        }
-                        else
-                        {
-                            
-                        }
+                        _container.placeLow = true;
+                        return true;
                     }
                     return false;
                     break;
+                case ValuableContainer vc:
+                    if (containers.Count == 0)
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        return containers.Last().canHaveContainerOnTop;
+                    }
+                    break;
 
+                case NormalContainer nc:
+                    if (containers.Count == 0)
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        weightOnNewContainer += containers.Sum(c => c.weight);
+                        if (weightOnNewContainer < 120000)
+                        {
+                            if (getHeaviestContainer() > _container.weight || getHeaviestContainer() == 0)
+                            {
+                                _container.placeLow = true;
+                                return true;
+                            }
+                            else
+                            {
+                                return false;
+                            }
+                        }
+                        else
+                        {
+                            return false;
+                        }
+                    }
+                    break;
                 default:
                 {
                     return false;
@@ -96,7 +139,6 @@ namespace ContainerVervoer
                     }
                 }
             }
-
             return heaviestContainer;
         }
 

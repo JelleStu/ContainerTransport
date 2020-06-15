@@ -10,6 +10,7 @@ namespace ContainerVervoer
         public List<ContainerStack> Stacks { get; set; }
         public int row;
         public int size;
+        public int rowWeight { get; set; }
 
         public Row(int StacksAnmount, int _rownumber)
         {
@@ -21,8 +22,9 @@ namespace ContainerVervoer
                 var stack = new ContainerStack(row, i);
                 Stacks.Add(stack);
             }
-            
         }
+
+        
 
         public void AddContainerToStack(Container container, int _stack)
         {
