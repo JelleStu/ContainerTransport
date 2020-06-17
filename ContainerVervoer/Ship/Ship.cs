@@ -12,6 +12,7 @@ namespace ContainerVervoer
         public int width;
         private int maxweight;
         public List<Row> rows;
+        public bool IsInBalance;
 
         public Ship()
         {
@@ -30,6 +31,34 @@ namespace ContainerVervoer
                 var row = new Row(width, i);
                 rows.Add(row);
             }
+        }
+
+        public void CheckBalance()
+        {
+            //First we need to get the "front rows"
+            int frontWeight = 0;
+            for (int i = 0; i < rows.Count / 2; i++)
+            {
+                frontWeight += rows[i].GetRowkWeight();
+            }
+            //Secondly we need to get the "back rows"
+            int backWeight = 0;
+            for (int i = 0; i < rows.Count / 2 + 1; i++)
+            {
+                frontWeight += rows[i].GetRowkWeight();
+            }
+            //The ship can only have max difference from 20% so we need to have 20% first from the combined weight
+            int maxdifference = (int) ((frontWeight + backWeight) * 0.2);
+            int difference = frontWeight - backWeight;
+            if (difference < maxdifference)
+            {
+                IsInBalance = true;
+            }
+            else
+            {
+                IsInBalance = false;
+            }
+
         }
 
         public bool CheckForCapSize()

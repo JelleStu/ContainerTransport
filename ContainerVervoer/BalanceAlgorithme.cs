@@ -60,7 +60,7 @@ namespace ContainerVervoer
             //Place normal containers
             PlaceNContainers();
             //Test placement
-
+            ValidatePlacement();
             //Return potential errors
         }
 
@@ -229,6 +229,15 @@ namespace ContainerVervoer
 
             //Sort stack on weight
             return sortedContainerStack = allContainerStacks.OrderByDescending(s => s.weight).ToList();
+        }
+
+        //In this method I will check the placement, will the ship capsize and is it in balance?
+        private bool ValidatePlacement()
+        {
+            if (ship.CheckForCapSize())
+            {
+                if()
+            }
         }
     }
 }
