@@ -24,15 +24,13 @@ namespace ContainerVervoer
             }
         }
 
-        
-
-        public void AddContainerToStack(Container container, int _stack)
+        public int GetRowkWeight()
         {
-          var stack = Stacks.FirstOrDefault(s => s.stackNumber == _stack);
-          if (stack.CanAddContainer(container))
-          {
-              stack.AddContainerToStack(container);
-          }
+            foreach (var stack in Stacks)
+            {
+                rowWeight += stack.weight;
+            }
+            return rowWeight;
         }
 
         

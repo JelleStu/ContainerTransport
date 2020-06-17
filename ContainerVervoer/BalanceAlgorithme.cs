@@ -77,15 +77,14 @@ namespace ContainerVervoer
         {
             //Select the first row
             Row FirstRow = ship.ReturnRow(0);
-            foreach (var container in cvList.ToList())
+            foreach (var container in cvList)
             {
                 foreach (var stack in FirstRow.Stacks)
                 {
                     if (stack.CanAddContainer(container))
                     {
                         stack.AddContainerToStack(container);
-                        cvList.Remove(container);
-                        break;
+                        continue;
                     }
                     else
                     {

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 
 namespace ContainerVervoer
@@ -9,7 +10,7 @@ namespace ContainerVervoer
     {
         public int lenght;
         public int width;
-        private int size;
+        private int maxweight;
         public List<Row> rows;
 
         public Ship()
@@ -28,6 +29,20 @@ namespace ContainerVervoer
             {
                 var row = new Row(width, i);
                 rows.Add(row);
+            }
+        }
+
+        public bool CheckForCapSize()
+        {
+            maxweight = lenght * width * 120000;
+            int currentshipweight = rows.Sum(row => row.GetRowkWeight());
+            if (currentshipweight < maxweight / 2)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
             }
         }
     }
