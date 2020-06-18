@@ -11,3 +11,16 @@ C:\-Fontys\Fontys 2019-20 2e semester\AlgoritmeOpdrachten\ContainerVervoer\Conta
 C:\-Fontys\Fontys 2019-20 2e semester\AlgoritmeOpdrachten\ContainerVervoer\ContainerVervoer\obj\Debug\netcoreapp3.1\ContainerVervoer.dll
 C:\-Fontys\Fontys 2019-20 2e semester\AlgoritmeOpdrachten\ContainerVervoer\ContainerVervoer\obj\Debug\netcoreapp3.1\ContainerVervoer.pdb
 C:\-Fontys\Fontys 2019-20 2e semester\AlgoritmeOpdrachten\ContainerVervoer\ContainerVervoer\obj\Debug\netcoreapp3.1\ContainerVervoer.genruntimeconfig.cache
+C:\Users\Jelle\Desktop\algoritme\ContainerTransport\ContainerVervoer\bin\Debug\netcoreapp3.1\ContainerVervoer.exe
+C:\Users\Jelle\Desktop\algoritme\ContainerTransport\ContainerVervoer\bin\Debug\netcoreapp3.1\ContainerVervoer.deps.json
+C:\Users\Jelle\Desktop\algoritme\ContainerTransport\ContainerVervoer\bin\Debug\netcoreapp3.1\ContainerVervoer.runtimeconfig.json
+C:\Users\Jelle\Desktop\algoritme\ContainerTransport\ContainerVervoer\bin\Debug\netcoreapp3.1\ContainerVervoer.runtimeconfig.dev.json
+C:\Users\Jelle\Desktop\algoritme\ContainerTransport\ContainerVervoer\bin\Debug\netcoreapp3.1\ContainerVervoer.dll
+C:\Users\Jelle\Desktop\algoritme\ContainerTransport\ContainerVervoer\bin\Debug\netcoreapp3.1\ContainerVervoer.pdb
+C:\Users\Jelle\Desktop\algoritme\ContainerTransport\ContainerVervoer\obj\Debug\netcoreapp3.1\ContainerVervoer.csprojAssemblyReference.cache
+C:\Users\Jelle\Desktop\algoritme\ContainerTransport\ContainerVervoer\obj\Debug\netcoreapp3.1\ContainerVervoer.AssemblyInfoInputs.cache
+C:\Users\Jelle\Desktop\algoritme\ContainerTransport\ContainerVervoer\obj\Debug\netcoreapp3.1\ContainerVervoer.AssemblyInfo.cs
+C:\Users\Jelle\Desktop\algoritme\ContainerTransport\ContainerVervoer\obj\Debug\netcoreapp3.1\ContainerVervoer.csproj.CoreCompileInputs.cache
+C:\Users\Jelle\Desktop\algoritme\ContainerTransport\ContainerVervoer\obj\Debug\netcoreapp3.1\ContainerVervoer.dll
+C:\Users\Jelle\Desktop\algoritme\ContainerTransport\ContainerVervoer\obj\Debug\netcoreapp3.1\ContainerVervoer.pdb
+C:\Users\Jelle\Desktop\algoritme\ContainerTransport\ContainerVervoer\obj\Debug\netcoreapp3.1\ContainerVervoer.genruntimeconfig.cache

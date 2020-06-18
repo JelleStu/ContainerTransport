@@ -39,9 +39,28 @@ namespace ContainerVervoer
             Console.Write("Hoeveel normale containers?");
             containerMaker.CreateContainers(Convert.ToInt32(Console.ReadLine()), normal);
 
-            Console.Write("Filling ship! Please wait.");
+            Console.Write("Containers plaatsen...");
             balanceAlgorithme.FillShip();
+            if (balanceAlgorithme.ValidatePlacement())
+            {
+                Console.WriteLine("Plaatsing is succesvol!");
+            }
+            else
+            {
+                Console.WriteLine("Schip is niet gebalanceerd of te weinig gewicht");
+            }
 
+            if (balanceAlgorithme.falseList.Count == 0)
+            {
+                Console.WriteLine("Alle containers zijn geplaats");
+            }
+            else
+            {
+                foreach (var container in balanceAlgorithme.falseList)
+                {
+                    Console.WriteLine(container.GetType().Name + " " + container.weight.ToString()+ "kon niet worden geplaatst.");
+                }
+            }
 
 
         }

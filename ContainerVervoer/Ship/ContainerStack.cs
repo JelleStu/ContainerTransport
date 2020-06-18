@@ -40,7 +40,7 @@ namespace ContainerVervoer
             containers.Insert(0, _container);
             weight += _container.weight;
         }
-        
+
         public void AddContainerToStackHigh(Container _container)
         {
             containers.Add(_container);
@@ -49,10 +49,10 @@ namespace ContainerVervoer
 
         public bool CanAddContainer(Container _container)
         {
-            int weightOnNewContainer = 0; 
-            switch (_container)
+            int weightOnNewContainer = 0;
+            switch (_container.GetType().Name)
             {
-                case CooledAndValuable cv:
+                case nameof(CooledAndValuable):
                     if (containers.Count == 0)
                     {
                         return true;
@@ -61,17 +61,28 @@ namespace ContainerVervoer
                     {
                         return false;
                     }
-                case CooledContainer cc:
+                case nameof(CooledContainer):
                     weightOnNewContainer += containers.Sum(c => c.weight);
-                    if (weightOnNewContainer >= 120000) return false;
-                    if (getHeaviestContainer() > _container.weight || getHeaviestContainer() == 0)
+                    if (weightOnNewContainer < 120000)
                     {
-                        _container.placeLow = true;
-                        return true;
+                        int heaviestcontainer = GetHeaviestContainer();
+                        if (heaviestcontainer < _container.weight)
+                        {
+                            _container.placeLow = true;
+                            return true;
+                        }
+                        else
+                        {
+                            return true;
+                        }
                     }
-                    return false;
+                    else
+                    {
+                        return false;
+                    }
+
                     break;
-                case ValuableContainer vc:
+                case nameof(ValuableContainer):
                     if (containers.Count == 0)
                     {
                         return true;
@@ -82,7 +93,7 @@ namespace ContainerVervoer
                     }
                     break;
 
-                case NormalContainer nc:
+                case nameof(NormalContainer):
                     if (containers.Count == 0)
                     {
                         return true;
@@ -92,14 +103,15 @@ namespace ContainerVervoer
                         weightOnNewContainer += containers.Sum(c => c.weight);
                         if (weightOnNewContainer < 120000)
                         {
-                            if (getHeaviestContainer() > _container.weight || getHeaviestContainer() == 0)
+                            int heaviestcontainer = GetHeaviestContainer();
+                            if (heaviestcontainer < _container.weight)
                             {
                                 _container.placeLow = true;
                                 return true;
                             }
                             else
                             {
-                                return false;
+                                return true;
                             }
                         }
                         else
@@ -109,20 +121,20 @@ namespace ContainerVervoer
                     }
                     break;
                 default:
-                {
-                    return false;
-                }
+                    {
+                        return false;
+                    }
             }
         }
 
-        private int getHeaviestContainer()
+        private int GetHeaviestContainer()
         {
             int heaviestContainer = 0;
             foreach (var container in containers)
             {
                 if (container is CooledAndValuable || container is ValuableContainer)
                 {
-                    heaviestContainer = 0;
+                    continue;
                 }
                 else
                 {
@@ -132,7 +144,7 @@ namespace ContainerVervoer
                     }
                     else
                     {
-                        if (container.weight > heaviestContainer)
+                        if (container.weight < heaviestContainer)
                         {
                             heaviestContainer = container.weight;
                         }

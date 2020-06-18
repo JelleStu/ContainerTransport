@@ -16,7 +16,7 @@ namespace ContainerVervoer
         public List<CooledContainer> cList = new List<CooledContainer>();
         public List<ValuableContainer> vList = new List<ValuableContainer>();
         public List<NormalContainer> nList = new List<NormalContainer>();
-        private List<Container> falseList = new List<Container>();
+        public List<Container> falseList = new List<Container>();
 
         public Ship ship;
 
@@ -59,8 +59,6 @@ namespace ContainerVervoer
             PlaceVContainers();
             //Place normal containers
             PlaceNContainers();
-            //Test placement
-            ValidatePlacement();
             //Return potential errors
         }
 
@@ -84,7 +82,7 @@ namespace ContainerVervoer
                     if (stack.CanAddContainer(container))
                     {
                         stack.AddContainerToStack(container);
-                        continue;
+                        break;
                     }
                     else
                     {
@@ -170,9 +168,6 @@ namespace ContainerVervoer
                                 continue;
                             }
                         }
-                        AddContainerToFalseList(container);
-                        containerSorted.Remove(container);
-                        continue;
                     }
                 }
                 stack = SortStacksOnWeight(lastRow.Stacks).First();
@@ -182,14 +177,14 @@ namespace ContainerVervoer
         private void PlaceNContainers()
         {
             //Sort containers on weight
-            List<NormalContainer> sortedContainers = nList.OrderByDescending(c => c.weight).ToList(); 
+            List<NormalContainer> sortedContainers = nList.OrderBy(c => c.weight).Reverse().ToList(); 
 
             //In this fucntion i will get the lightest stack, on this stack I will place the heaviest container.
             List<ContainerStack> stacks = sortContainerStacks();
             
             foreach (var container in sortedContainers.ToList())
             {
-                var stack = stacks.First();
+                var stack = stacks.Last();
                 if (stack.CanAddContainer(container))
                 {
                     if (container.placeLow)
@@ -228,16 +223,21 @@ namespace ContainerVervoer
             List<ContainerStack> allContainerStacks = rows.SelectMany(row => row.Stacks).ToList();
 
             //Sort stack on weight
-            return sortedContainerStack = allContainerStacks.OrderByDescending(s => s.weight).ToList();
+            return sortedContainerStack = allContainerStacks.OrderBy(s => s.weight).Reverse().ToList();
         }
 
         //In this method I will check the placement, will the ship capsize and is it in balance?
-        private bool ValidatePlacement()
+        public bool ValidatePlacement()
         {
             if (ship.CheckForCapSize())
             {
-                if()
+                ship.CheckBalance();
+                if (ship.IsInBalance)
+                {
+                    return true;
+                }
             }
+            return false;
         }
     }
 }

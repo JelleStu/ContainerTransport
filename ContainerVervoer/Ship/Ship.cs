@@ -35,22 +35,37 @@ namespace ContainerVervoer
 
         public void CheckBalance()
         {
-            //First we need to get the "front rows"
-            int frontWeight = 0;
-            for (int i = 0; i < rows.Count / 2; i++)
+            //First we need to get the "left rows" select all rows, but we need only the half of the stackcontainers.
+            int leftWeight = 0;
+            foreach (var row in rows)
             {
-                frontWeight += rows[i].GetRowkWeight();
+                foreach (var stack in row.Stacks)
+                {
+                    if (stack.stackNumber < width / 2)
+                    {
+                        leftWeight += stack.weight;
+                    }
+                }
             }
-            //Secondly we need to get the "back rows"
-            int backWeight = 0;
-            for (int i = 0; i < rows.Count / 2 + 1; i++)
+
+            //Secondly we need to get the "right rows"
+            int rightWeight = 0;
+            foreach (var row in rows)
             {
-                frontWeight += rows[i].GetRowkWeight();
+                foreach (var stack in row.Stacks)
+                {
+                    if (stack.stackNumber >= width / 2)
+                    {
+                        rightWeight += stack.weight;
+                    }
+                }
             }
+
+
             //The ship can only have max difference from 20% so we need to have 20% first from the combined weight
-            int maxdifference = (int) ((frontWeight + backWeight) * 0.2);
-            int difference = frontWeight - backWeight;
-            if (difference < maxdifference)
+            double difference = (double)leftWeight / (double)rightWeight;
+
+            if (difference > 0.8 && difference < 1.2)
             {
                 IsInBalance = true;
             }
@@ -65,14 +80,7 @@ namespace ContainerVervoer
         {
             maxweight = lenght * width * 120000;
             int currentshipweight = rows.Sum(row => row.GetRowkWeight());
-            if (currentshipweight < maxweight / 2)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            return currentshipweight > maxweight / 2;
         }
     }
 }
