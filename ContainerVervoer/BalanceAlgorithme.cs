@@ -68,8 +68,6 @@ namespace ContainerVervoer
             ship.CreateRows();
         }
 
-        
-        
         // place valuable and cooled containers
         private void PlaceCVContainers()
         {

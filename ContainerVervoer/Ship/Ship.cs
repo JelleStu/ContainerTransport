@@ -78,9 +78,9 @@ namespace ContainerVervoer
 
         public bool CheckForCapSize()
         {
-            maxweight = length * width * 120000;
+            int minimal = length * width * 120000 / 2;
             int currentshipweight = rows.Sum(row => row.GetRowkWeight());
-            return currentshipweight > maxweight / 2;
+            return currentshipweight >= minimal;
         }
     }
 }
