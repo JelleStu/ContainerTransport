@@ -21,22 +21,22 @@ namespace ContainerVervoer
             {
                 if (_container is CooledAndValuable)
                 {
-                    var container = new CooledAndValuable(randomSize(), false);
+                    var container = new CooledAndValuable(randomSize());
                     balanceAlgorithm.FillCvList(container);
                 }
                 else if (_container is CooledContainer)
                 {
-                    var container = new CooledContainer(randomSize(), true);
+                    var container = new CooledContainer(randomSize());
                     balanceAlgorithm.FillCList(container);
                 }
                 else if (_container is ValuableContainer)
                 {
-                    var container = new ValuableContainer(randomSize(), false);
+                    var container = new ValuableContainer(randomSize());
                     balanceAlgorithm.FillVList(container);
                 }
                 else if (_container is NormalContainer)
                 {
-                    var container = new NormalContainer(randomSize(), true);
+                    var container = new NormalContainer(randomSize());
                     balanceAlgorithm.FillNList(container);
                 }
 

@@ -6,7 +6,11 @@ namespace ContainerVervoer
 {
     public class CooledContainer : Container
     {
-        public CooledContainer(int weight, bool canHaveContainerOnTop) : base(weight, canHaveContainerOnTop) { }
+        public CooledContainer(int _weight)
+        {
+            weight = _weight;
+            canHaveContainerOnTop = true;
+        }
         public CooledContainer() { }
     }
 }

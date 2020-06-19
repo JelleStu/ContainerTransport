@@ -8,7 +8,7 @@ namespace ContainerVervoer
 {
     public class Ship
     {
-        public int lenght;
+        public int length;
         public int width;
         private int maxweight;
         public List<Row> rows;
@@ -26,7 +26,7 @@ namespace ContainerVervoer
 
         public void CreateRows()
         {
-            for (int i = 0; i < width; i++)
+            for (int i = 0; i < length; i++)
             {
                 var row = new Row(width, i);
                 rows.Add(row);
@@ -78,7 +78,7 @@ namespace ContainerVervoer
 
         public bool CheckForCapSize()
         {
-            maxweight = lenght * width * 120000;
+            maxweight = length * width * 120000;
             int currentshipweight = rows.Sum(row => row.GetRowkWeight());
             return currentshipweight > maxweight / 2;
         }

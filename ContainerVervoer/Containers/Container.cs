@@ -12,10 +12,9 @@ namespace ContainerVervoer
 
        public Container() { }
 
-       public Container(int _weight, bool _canHaveContainerOnTop)
+       public Container(int _weight)
        {
            weight = _weight;
-           canHaveContainerOnTop = _canHaveContainerOnTop;
        }
    }
 }

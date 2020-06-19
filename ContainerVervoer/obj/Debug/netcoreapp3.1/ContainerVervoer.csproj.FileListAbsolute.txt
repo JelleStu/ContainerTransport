@@ -24,3 +24,16 @@ C:\Users\Jelle\Desktop\algoritme\ContainerTransport\ContainerVervoer\obj\Debug\n
 C:\Users\Jelle\Desktop\algoritme\ContainerTransport\ContainerVervoer\obj\Debug\netcoreapp3.1\ContainerVervoer.dll
 C:\Users\Jelle\Desktop\algoritme\ContainerTransport\ContainerVervoer\obj\Debug\netcoreapp3.1\ContainerVervoer.pdb
 C:\Users\Jelle\Desktop\algoritme\ContainerTransport\ContainerVervoer\obj\Debug\netcoreapp3.1\ContainerVervoer.genruntimeconfig.cache
+C:\-Fontys\Fontys 2019-20 2e semester\AlgoritmeOpdrachten\ContainerTransport\ContainerVervoer\bin\Debug\netcoreapp3.1\ContainerVervoer.exe
+C:\-Fontys\Fontys 2019-20 2e semester\AlgoritmeOpdrachten\ContainerTransport\ContainerVervoer\bin\Debug\netcoreapp3.1\ContainerVervoer.deps.json
+C:\-Fontys\Fontys 2019-20 2e semester\AlgoritmeOpdrachten\ContainerTransport\ContainerVervoer\bin\Debug\netcoreapp3.1\ContainerVervoer.runtimeconfig.json
+C:\-Fontys\Fontys 2019-20 2e semester\AlgoritmeOpdrachten\ContainerTransport\ContainerVervoer\bin\Debug\netcoreapp3.1\ContainerVervoer.runtimeconfig.dev.json
+C:\-Fontys\Fontys 2019-20 2e semester\AlgoritmeOpdrachten\ContainerTransport\ContainerVervoer\bin\Debug\netcoreapp3.1\ContainerVervoer.dll
+C:\-Fontys\Fontys 2019-20 2e semester\AlgoritmeOpdrachten\ContainerTransport\ContainerVervoer\bin\Debug\netcoreapp3.1\ContainerVervoer.pdb
+C:\-Fontys\Fontys 2019-20 2e semester\AlgoritmeOpdrachten\ContainerTransport\ContainerVervoer\obj\Debug\netcoreapp3.1\ContainerVervoer.csprojAssemblyReference.cache
+C:\-Fontys\Fontys 2019-20 2e semester\AlgoritmeOpdrachten\ContainerTransport\ContainerVervoer\obj\Debug\netcoreapp3.1\ContainerVervoer.csproj.CoreCompileInputs.cache
+C:\-Fontys\Fontys 2019-20 2e semester\AlgoritmeOpdrachten\ContainerTransport\ContainerVervoer\obj\Debug\netcoreapp3.1\ContainerVervoer.AssemblyInfoInputs.cache
+C:\-Fontys\Fontys 2019-20 2e semester\AlgoritmeOpdrachten\ContainerTransport\ContainerVervoer\obj\Debug\netcoreapp3.1\ContainerVervoer.AssemblyInfo.cs
+C:\-Fontys\Fontys 2019-20 2e semester\AlgoritmeOpdrachten\ContainerTransport\ContainerVervoer\obj\Debug\netcoreapp3.1\ContainerVervoer.dll
+C:\-Fontys\Fontys 2019-20 2e semester\AlgoritmeOpdrachten\ContainerTransport\ContainerVervoer\obj\Debug\netcoreapp3.1\ContainerVervoer.pdb
+C:\-Fontys\Fontys 2019-20 2e semester\AlgoritmeOpdrachten\ContainerTransport\ContainerVervoer\obj\Debug\netcoreapp3.1\ContainerVervoer.genruntimeconfig.cache

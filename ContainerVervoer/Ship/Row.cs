@@ -19,7 +19,7 @@ namespace ContainerVervoer
             size = StacksAnmount;
             for (int i = 0; i < StacksAnmount; i++)
             {
-                var stack = new ContainerStack(row, i);
+                var stack = new ContainerStack(i);
                 Stacks.Add(stack);
             }
         }

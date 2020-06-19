@@ -70,30 +70,33 @@ namespace ContainerVervoer
 
         
         
-        // place cooled containers
+        // place valuable and cooled containers
         private void PlaceCVContainers()
         {
             //Select the first row
-            Row FirstRow = ship.ReturnRow(0);
-            foreach (var container in cvList)
+            Row firstRow = ship.ReturnRow(0);
+
+            foreach (var stack in firstRow.Stacks)
             {
-                foreach (var stack in FirstRow.Stacks)
+                foreach (var container in cvList.ToList())
                 {
                     if (stack.CanAddContainer(container))
                     {
                         stack.AddContainerToStack(container);
+                        cvList.Remove(container);
                         break;
                     }
-                    else
-                    {
-                        continue;
-                    }
-                    AddContainerToFalseList(container);
-                    cvList.Remove(container);
                 }
+            }
+
+            if (cvList.Count == 0) return;
+            foreach (var c in cvList)
+            {
+                AddContainerToFalseList(c);
             }
         }
 
+        //Place the cooled containers
         private void PlaceCContainers()
         {
             //Get al list with containers sorted on weight (reverse because it will sort on the lowest container).
@@ -105,7 +108,7 @@ namespace ContainerVervoer
             //Sort the Row stacks on the LOWEST weight, i will place the heaviest container on the lowes weight to compensate.
             ContainerStack stack = SortStacksOnWeight(firstRow.Stacks).FirstOrDefault();
 
-            foreach (var container in containerSortedWeight.ToList())
+            foreach (var container in containerSortedWeight)
             {
                 if (container != null)
                 {
@@ -114,17 +117,14 @@ namespace ContainerVervoer
                         if (container.placeLow)
                         {
                             stack.AddContainerToStackLow(container);
-                            containerSortedWeight.Remove(container);
                         }
                         else
                         {
                             stack.AddContainerToStack(container);
-                            containerSortedWeight.Remove(container);
                         }
                     }
                     else
                     {
-                        containerSortedWeight.Remove(container);
                         AddContainerToFalseList(container);
                     }
                 }
@@ -132,6 +132,7 @@ namespace ContainerVervoer
             }
         }
 
+        //Place valuable containers.
         private void PlaceVContainers()
         {
             //Sort the valuable containers on weight. Reverse to get the heaviest.
@@ -168,12 +169,14 @@ namespace ContainerVervoer
                                 continue;
                             }
                         }
+                        AddContainerToFalseList(container);
                     }
                 }
                 stack = SortStacksOnWeight(lastRow.Stacks).First();
             }
         }
 
+        //Place the normal containers.
         private void PlaceNContainers()
         {
             //Sort containers on weight
@@ -182,7 +185,7 @@ namespace ContainerVervoer
             //In this fucntion i will get the lightest stack, on this stack I will place the heaviest container.
             List<ContainerStack> stacks = sortContainerStacks();
             
-            foreach (var container in sortedContainers.ToList())
+            foreach (var container in sortedContainers)
             {
                 var stack = stacks.Last();
                 if (stack.CanAddContainer(container))
@@ -190,18 +193,15 @@ namespace ContainerVervoer
                     if (container.placeLow)
                     {
                         stack.AddContainerToStackLow(container);
-                        sortedContainers.Remove(container);
                     }
                     else
                     {
                         stack.AddContainerToStack(container);
-                        sortedContainers.Remove(container);
                     }
                 }
                 else
                 {
                     AddContainerToFalseList(container);
-                    sortedContainers.Remove(container);
                 }
                 stacks = sortContainerStacks();
             }

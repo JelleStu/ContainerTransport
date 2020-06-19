@@ -6,8 +6,10 @@ namespace ContainerVervoer
 {
     public class ValuableContainer : Container
     {
-        public ValuableContainer(int weight, bool _canHaveContainerOnTop) : base(weight, _canHaveContainerOnTop)
+        public ValuableContainer(int _weight)
         {
+            weight = _weight;
+            canHaveContainerOnTop = false;
         }
         public ValuableContainer() { }
     }

@@ -10,20 +10,18 @@ namespace ContainerVervoer
     public class ContainerStack
     {
         public List<Container> containers { get; set; }
-        public int x;
         public int stackNumber;
         public int weight { get; set; }
 
-        public ContainerStack(int _x, int _stackNumber)
+        public ContainerStack(int _stackNumber)
         {
-            x = _x;
             stackNumber = _stackNumber;
             containers = new List<Container>();
         }
 
         public void AddContainerToStack(Container _container)
         {
-            if (containers.Count == 0)
+            if (containers.Count == 0 || containers.Count == 1)
             {
                 containers.Add(_container);
             }
@@ -62,8 +60,7 @@ namespace ContainerVervoer
                         return false;
                     }
                 case nameof(CooledContainer):
-                    weightOnNewContainer += containers.Sum(c => c.weight);
-                    if (weightOnNewContainer < 120000)
+                    if (weight < 120000)
                     {
                         int heaviestcontainer = GetHeaviestContainer();
                         if (heaviestcontainer < _container.weight)
@@ -80,8 +77,6 @@ namespace ContainerVervoer
                     {
                         return false;
                     }
-
-                    break;
                 case nameof(ValuableContainer):
                     if (containers.Count == 0)
                     {
@@ -91,8 +86,6 @@ namespace ContainerVervoer
                     {
                         return containers.Last().canHaveContainerOnTop;
                     }
-                    break;
-
                 case nameof(NormalContainer):
                     if (containers.Count == 0)
                     {
@@ -119,7 +112,6 @@ namespace ContainerVervoer
                             return false;
                         }
                     }
-                    break;
                 default:
                     {
                         return false;
@@ -154,9 +146,5 @@ namespace ContainerVervoer
             return heaviestContainer;
         }
 
-        public int Returncontainers()
-        {
-            return containers.Count;
-        }
     }
 }

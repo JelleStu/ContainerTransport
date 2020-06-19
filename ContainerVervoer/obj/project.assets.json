@@ -9,23 +9,26 @@
   },
   "packageFolders": {
     "C:\\Users\\Jelle\\.nuget\\packages\\": {},
+    "C:\\Microsoft\\Xamarin\\NuGet\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Jelle\\Desktop\\algoritme\\ContainerTransport\\ContainerVervoer\\ContainerVervoer.csproj",
+      "projectUniqueName": "C:\\-Fontys\\Fontys 2019-20 2e semester\\AlgoritmeOpdrachten\\ContainerTransport\\ContainerVervoer\\ContainerVervoer.csproj",
       "projectName": "ContainerVervoer",
-      "projectPath": "C:\\Users\\Jelle\\Desktop\\algoritme\\ContainerTransport\\ContainerVervoer\\ContainerVervoer.csproj",
+      "projectPath": "C:\\-Fontys\\Fontys 2019-20 2e semester\\AlgoritmeOpdrachten\\ContainerTransport\\ContainerVervoer\\ContainerVervoer.csproj",
       "packagesPath": "C:\\Users\\Jelle\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Jelle\\Desktop\\algoritme\\ContainerTransport\\ContainerVervoer\\obj\\",
+      "outputPath": "C:\\-Fontys\\Fontys 2019-20 2e semester\\AlgoritmeOpdrachten\\ContainerTransport\\ContainerVervoer\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
+        "C:\\Microsoft\\Xamarin\\NuGet\\",
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
         "C:\\Users\\Jelle\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp3.1"
@@ -62,7 +65,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.301\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.201\\RuntimeIdentifierGraph.json"
       }
     }
   }

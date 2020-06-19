@@ -20,7 +20,7 @@ namespace ContainerVervoer
             ship = new Ship();
             
             Console.Write("Lengte schip?");
-            ship.lenght = Convert.ToInt32(Console.ReadLine());
+            ship.length = Convert.ToInt32(Console.ReadLine());
 
             Console.Write("Breedte schip?");
             ship.width = Convert.ToInt32(Console.ReadLine());

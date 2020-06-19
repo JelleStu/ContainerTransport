@@ -6,8 +6,10 @@ namespace ContainerVervoer
 {
     public class NormalContainer : Container
     {
-        public NormalContainer(int weight, bool _canHaveContainerOnTop) : base(weight, _canHaveContainerOnTop)
+        public NormalContainer(int _weight)
         {
+            weight = _weight;
+            canHaveContainerOnTop = true;
         }
 
         public NormalContainer() { }
